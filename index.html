@@ -1,0 +1,2291 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RM Earning Point - Grow Your Earnings</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+  <script src="/_sdk/element_sdk.js"></script>
+  <script src="/_sdk/data_sdk.js"></script>
+  <style>
+    body {
+      box-sizing: border-box;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Inter', sans-serif;
+      background: #ffffff;
+      color: #333;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes glow {
+      0%, 100% {
+        box-shadow: 0 0 20px rgba(244, 197, 66, 0.3);
+      }
+      50% {
+        box-shadow: 0 0 40px rgba(244, 197, 66, 0.6);
+      }
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    /* Header */
+    header {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      padding: 20px 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(31, 98, 208, 0.1);
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .logo-circle {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #1F62D0, #F4C542);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      font-size: 22px;
+      box-shadow: 0 8px 25px rgba(31, 98, 208, 0.3);
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .company-name {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 20px;
+      color: #1F62D0;
+      line-height: 1;
+    }
+
+    .company-tagline {
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      font-size: 12px;
+      color: #666;
+      opacity: 0.8;
+      line-height: 1;
+    }
+
+    .nav-buttons {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .nav-btn {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+      color: #1F62D0;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .nav-btn:hover {
+      background: linear-gradient(135deg, #1F62D0, #F4C542);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(31, 98, 208, 0.3);
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #1F62D0 0%, #F4C542 100%);
+      padding: 140px 0 100px;
+      text-align: center;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -30%;
+      left: -10%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: float 8s ease-in-out infinite reverse;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    .hero h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 56px;
+      font-weight: 800;
+      margin-bottom: 25px;
+      line-height: 1.2;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+
+    .hero p {
+      font-size: 22px;
+      margin-bottom: 50px;
+      opacity: 0.95;
+      font-weight: 400;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 25px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 60px;
+    }
+
+    .btn {
+      padding: 18px 45px;
+      border-radius: 50px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      transition: all 0.4s ease;
+      text-decoration: none;
+      display: inline-block;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s;
+    }
+
+    .btn:hover::before {
+      left: 100%;
+    }
+
+    .btn-gold {
+      background: linear-gradient(135deg, #F4C542, #FFD700);
+      color: #1F62D0;
+      box-shadow: 0 10px 30px rgba(244, 197, 66, 0.4);
+    }
+
+    .btn-gold:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(244, 197, 66, 0.6);
+      animation: glow 2s infinite;
+    }
+
+    .btn-blue {
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(10px);
+    }
+
+    .btn-blue:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(255, 255, 255, 0.2);
+    }
+
+    .trust-icons {
+      display: flex;
+      gap: 50px;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .trust-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      opacity: 0.9;
+      animation: fadeInUp 1s ease-out 0.5s both;
+    }
+
+    .trust-icon {
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    /* Glass Card Effect */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(20px);
+      border-radius: 25px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      transition: all 0.4s ease;
+    }
+
+    .glass-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Section Styles */
+    section {
+      padding: 100px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      font-family: 'Poppins', sans-serif;
+      font-size: 42px;
+      font-weight: 700;
+      color: #1F62D0;
+      margin-bottom: 60px;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(135deg, #1F62D0, #F4C542);
+      border-radius: 2px;
+    }
+
+    /* About Section */
+    .about {
+      background: linear-gradient(135deg, #f8f9ff 0%, #fff 100%);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 40px;
+    }
+
+    .about-card {
+      text-align: center;
+      padding: 50px 30px;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(20px);
+      border-radius: 25px;
+      border: 1px solid rgba(31, 98, 208, 0.1);
+      box-shadow: 0 15px 35px rgba(31, 98, 208, 0.08);
+      transition: all 0.4s ease;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    .about-card:hover {
+      transform: translateY(-15px);
+      box-shadow: 0 25px 50px rgba(31, 98, 208, 0.15);
+      border-color: rgba(244, 197, 66, 0.3);
+    }
+
+    .about-icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 25px;
+      background: linear-gradient(135deg, #1F62D0, #F4C542);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 25px rgba(31, 98, 208, 0.3);
+    }
+
+    .about-card h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 22px;
+      color: #1F62D0;
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+
+    .about-card p {
+      color: #666;
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    /* How It Works */
+    .steps-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 50px;
+    }
+
+    .step-card {
+      text-align: center;
+      padding: 40px 30px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 25px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+      position: relative;
+      border: 2px solid transparent;
+      transition: all 0.4s ease;
+      animation: fadeInUp 1s ease-out;
+      margin-top: 0;
+    }
+
+    .step-card:hover {
+      transform: translateY(-10px);
+      border-color: #F4C542;
+      box-shadow: 0 25px 50px rgba(244, 197, 66, 0.2);
+    }
+
+    .step-number {
+      display: none;
+    }
+
+    .step-icon {
+      width: 90px;
+      height: 90px;
+      margin: 30px auto 25px;
+      background: linear-gradient(135deg, rgba(31, 98, 208, 0.1), rgba(244, 197, 66, 0.1));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .step-card h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 20px;
+      color: #1F62D0;
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+
+    .step-card p {
+      color: #666;
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    /* Packages */
+    .packages {
+      background: linear-gradient(135deg, #1F62D0 0%, #0a4299 100%);
+      color: white;
+    }
+
+    .packages .section-title {
+      color: white;
+    }
+
+    .packages .section-title::after {
+      background: linear-gradient(135deg, #F4C542, #FFD700);
+    }
+
+    .packages-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 50px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .package-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(20px);
+      border-radius: 30px;
+      padding: 50px 40px;
+      text-align: center;
+      border: 2px solid rgba(244, 197, 66, 0.3);
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    .package-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(244, 197, 66, 0.1), transparent);
+      transform: rotate(45deg);
+      transition: all 0.6s ease;
+      opacity: 0;
+    }
+
+    .package-card:hover::before {
+      opacity: 1;
+      transform: rotate(45deg) translate(50%, 50%);
+    }
+
+    .package-card:hover {
+      transform: translateY(-15px) scale(1.02);
+      border-color: #F4C542;
+      box-shadow: 0 30px 60px rgba(244, 197, 66, 0.3);
+      animation: glow 2s infinite;
+    }
+
+    .package-card h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 28px;
+      margin-bottom: 25px;
+      font-weight: 700;
+      color: #F4C542;
+    }
+
+    .package-amount {
+      font-family: 'Poppins', sans-serif;
+      font-size: 36px;
+      font-weight: 800;
+      color: white;
+      margin-bottom: 20px;
+    }
+
+    .package-earning {
+      font-size: 20px;
+      color: #F4C542;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+
+    .package-note {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.8);
+      font-style: italic;
+    }
+
+    /* Payment Section */
+    .payment {
+      background: linear-gradient(135deg, #f8f9ff 0%, #fff 100%);
+    }
+
+    .payment-box {
+      background: linear-gradient(135deg, #1F62D0, #0a4299);
+      color: white;
+      padding: 60px 50px;
+      border-radius: 30px;
+      max-width: 800px;
+      margin: 0 auto;
+      box-shadow: 0 20px 50px rgba(31, 98, 208, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .payment-box::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(244, 197, 66, 0.1) 0%, transparent 70%);
+      animation: float 8s ease-in-out infinite;
+    }
+
+    .payment-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .payment-box h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 32px;
+      margin-bottom: 40px;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    .payment-details {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(20px);
+      padding: 40px;
+      border-radius: 20px;
+      margin-bottom: 30px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .payment-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      font-size: 16px;
+      align-items: center;
+    }
+
+    .payment-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .payment-label {
+      font-weight: 500;
+      opacity: 0.9;
+    }
+
+    .payment-value {
+      font-weight: 700;
+      color: #F4C542;
+    }
+
+    .contact-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .contact-btn {
+      padding: 18px 35px;
+      border-radius: 50px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 16px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      transition: all 0.4s ease;
+      min-width: 180px;
+      justify-content: center;
+    }
+
+    .whatsapp-btn {
+      background: linear-gradient(135deg, #25D366, #20BA5A);
+      color: white;
+      box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+    }
+
+    .whatsapp-btn:hover {
+      background: linear-gradient(135deg, #20BA5A, #1ea952);
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(37, 211, 102, 0.6);
+    }
+
+    .email-btn {
+      background: linear-gradient(135deg, #EA4335, #D33B2C);
+      color: white;
+      box-shadow: 0 10px 30px rgba(234, 67, 53, 0.4);
+    }
+
+    .email-btn:hover {
+      background: linear-gradient(135deg, #D33B2C, #C5221F);
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(234, 67, 53, 0.6);
+    }
+
+    /* Footer */
+    footer {
+      background: linear-gradient(135deg, #1F62D0 0%, #0a4299 100%);
+      color: white;
+      padding: 50px 0;
+      text-align: center;
+      border-radius: 50px 50px 0 0;
+      margin-top: 50px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    footer::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(244, 197, 66, 0.05) 0%, transparent 70%);
+      animation: float 10s ease-in-out infinite;
+    }
+
+    footer p {
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      position: relative;
+      z-index: 2;
+      opacity: 0.9;
+    }
+
+    /* Modal Styles */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(10px);
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal {
+      background: white;
+      border-radius: 25px;
+      padding: 40px;
+      max-width: 500px;
+      width: 90%;
+      max-height: 90%;
+      overflow-y: auto;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+      transform: scale(0.8) translateY(50px);
+      transition: all 0.3s ease;
+    }
+
+    .modal-overlay.active .modal {
+      transform: scale(1) translateY(0);
+    }
+
+    .modal-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .modal-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: #1F62D0;
+      margin-bottom: 10px;
+    }
+
+    .modal-subtitle {
+      color: #666;
+      font-size: 16px;
+    }
+
+    .form-group {
+      margin-bottom: 25px;
+    }
+
+    .form-label {
+      display: block;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 15px 20px;
+      border: 2px solid #e0e0e0;
+      border-radius: 15px;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      background: #f8f9fa;
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: #1F62D0;
+      background: white;
+      box-shadow: 0 0 0 3px rgba(31, 98, 208, 0.1);
+    }
+
+    .package-info {
+      background: linear-gradient(135deg, #1F62D0, #F4C542);
+      color: white;
+      padding: 20px;
+      border-radius: 15px;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    .package-info h4 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .package-info p {
+      font-size: 16px;
+      opacity: 0.9;
+    }
+
+    .modal-buttons {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .modal-btn {
+      padding: 15px 30px;
+      border-radius: 25px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .modal-btn-primary {
+      background: linear-gradient(135deg, #F4C542, #FFD700);
+      color: #1F62D0;
+    }
+
+    .modal-btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(244, 197, 66, 0.4);
+    }
+
+    .modal-btn-primary:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .modal-btn-secondary {
+      background: #e0e0e0;
+      color: #666;
+    }
+
+    .modal-btn-secondary:hover {
+      background: #d0d0d0;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      background: none;
+      border: none;
+      font-size: 24px;
+      color: #999;
+      cursor: pointer;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+    }
+
+    .close-btn:hover {
+      background: #f0f0f0;
+      color: #333;
+    }
+
+    .loading-spinner {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 2px solid #1F62D0;
+      border-radius: 50%;
+      border-top-color: transparent;
+      animation: spin 1s ease-in-out infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .success-message {
+      background: #d4edda;
+      color: #155724;
+      padding: 15px 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #c3e6cb;
+      text-align: center;
+    }
+
+    .error-message {
+      background: #f8d7da;
+      color: #721c24;
+      padding: 15px 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #f5c6cb;
+      text-align: center;
+    }
+
+    .selected-package {
+      border-color: #F4C542 !important;
+      box-shadow: 0 0 0 3px rgba(244, 197, 66, 0.2);
+      transform: scale(1.02);
+    }
+
+    /* Clickable Cards */
+    .clickable-card {
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .clickable-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(244, 197, 66, 0.1), transparent);
+      transition: left 0.5s;
+    }
+
+    .clickable-card:hover::before {
+      left: 100%;
+    }
+
+    .card-action-btn {
+      background: linear-gradient(135deg, #F4C542, #FFD700);
+      color: #1F62D0;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 25px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(244, 197, 66, 0.3);
+    }
+
+    .card-action-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(244, 197, 66, 0.5);
+    }
+
+    /* Assignment Section */
+    .assignment-section {
+      background: linear-gradient(135deg, #f8f9ff 0%, #fff 100%);
+      padding: 80px 0;
+    }
+
+    .assignment-box {
+      background: linear-gradient(135deg, #1F62D0, #0a4299);
+      color: white;
+      padding: 60px 50px;
+      border-radius: 30px;
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+      box-shadow: 0 20px 50px rgba(31, 98, 208, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .assignment-box::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(244, 197, 66, 0.1) 0%, transparent 70%);
+      animation: float 8s ease-in-out infinite;
+    }
+
+    .assignment-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .assignment-content h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    .assignment-content p {
+      font-size: 16px;
+      opacity: 0.9;
+      margin-bottom: 0;
+    }
+
+    /* File Upload Styles */
+    .file-upload-area {
+      border: 2px dashed #e0e0e0;
+      border-radius: 15px;
+      padding: 40px 20px;
+      text-align: center;
+      background: #f8f9fa;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+
+    .file-upload-area:hover {
+      border-color: #1F62D0;
+      background: #f0f4ff;
+    }
+
+    .file-upload-area.dragover {
+      border-color: #F4C542;
+      background: #fffbf0;
+    }
+
+    .upload-icon {
+      width: 60px;
+      height: 60px;
+      margin: 0 auto 15px;
+      background: linear-gradient(135deg, #1F62D0, #F4C542);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .upload-text {
+      font-family: 'Poppins', sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 8px;
+    }
+
+    .upload-subtext {
+      color: #666;
+      font-size: 14px;
+    }
+
+    .file-input {
+      display: none;
+    }
+
+    .file-preview {
+      background: #f0f4ff;
+      border: 1px solid #e0e8ff;
+      border-radius: 10px;
+      padding: 15px;
+      margin-top: 15px;
+      display: none;
+    }
+
+    .file-preview.show {
+      display: block;
+    }
+
+    .file-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .file-icon {
+      width: 40px;
+      height: 40px;
+      background: #1F62D0;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .file-details h4 {
+      margin: 0 0 5px 0;
+      font-size: 16px;
+      color: #333;
+    }
+
+    .file-details p {
+      margin: 0;
+      font-size: 14px;
+      color: #666;
+    }
+
+    .remove-file {
+      background: #dc3545;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 25px;
+      height: 25px;
+      cursor: pointer;
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      .hero p {
+        font-size: 18px;
+      }
+
+      .section-title {
+        font-size: 32px;
+      }
+
+      .payment-box {
+        padding: 40px 30px;
+      }
+
+      .payment-row {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+      }
+
+      .nav-buttons {
+        gap: 15px;
+      }
+
+      .nav-btn {
+        padding: 8px 15px;
+        font-size: 14px;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .trust-icons {
+        gap: 30px;
+      }
+
+      .modal {
+        padding: 30px 20px;
+      }
+
+      .modal-buttons {
+        flex-direction: column;
+      }
+
+      .company-name {
+        font-size: 18px;
+      }
+
+      .logo {
+        gap: 12px;
+      }
+
+      .contact-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .contact-btn {
+        min-width: 200px;
+      }
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+ </head>
+ <body><!-- Header -->
+  <header>
+   <div class="container">
+    <div class="header-content">
+     <div class="logo">
+      <div class="logo-circle" id="logo-text">
+       RM
+      </div>
+      <div class="logo-text"><span class="company-name" id="company-name">RM Earning Point</span> <span class="company-tagline">Investment Solutions</span>
+      </div>
+     </div>
+     <nav class="nav-buttons"><a href="#hero" class="nav-btn">Home</a> <a href="#packages" class="nav-btn">Packages</a> <a href="#contact" class="nav-btn">Contact</a>
+     </nav>
+    </div>
+   </div>
+  </header><!-- Hero Section -->
+  <section id="hero" class="hero">
+   <div class="container">
+    <div class="hero-content">
+     <h1 id="hero-headline">Grow Your Earnings with RM Earning Point</h1>
+     <p id="hero-subheadline">Fast returns and trusted investment opportunities</p>
+     <div class="cta-buttons"><a href="#packages" class="btn btn-gold" id="cta-primary">Start Investing</a> <a href="#contact" class="btn btn-blue" id="cta-secondary">Contact Support</a>
+     </div>
+     <div class="trust-icons">
+      <div class="trust-item">
+       <div class="trust-icon">
+        <svg width="24" height="24" viewbox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+       </div><span>WhatsApp</span>
+      </div>
+      <div class="trust-item">
+       <div class="trust-icon">
+        <svg width="24" height="24" viewbox="0 0 24 24" fill="white"><path d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M12,7C13.4,7 14.8,8.6 14.8,10V11H16V18H8V11H9.2V10C9.2,8.6 10.6,7 12,7M12,8.2C11.2,8.2 10.4,8.7 10.4,10V11H13.6V10C13.6,8.7 12.8,8.2 12,8.2Z" />
+        </svg>
+       </div><span>Secure</span>
+      </div>
+      <div class="trust-item">
+       <div class="trust-icon">
+        <svg width="24" height="24" viewbox="0 0 24 24" fill="white"><path d="M7,2V4H8V18A4,4 0 0,0 12,22A4,4 0 0,0 16,18V4H17V2H7M11,16C10.4,16 10,15.6 10,15C10,14.4 10.4,14 11,14C11.6,14 12,14.4 12,15C12,15.6 11.6,16 11,16M13,12C12.4,12 12,11.6 12,11C12,10.4 12.4,10 13,10C13.6,10 14,10.4 14,11C14,11.6 13.6,12 13,12M11,8C10.4,8 10,7.6 10,7C10,6.4 10.4,6 11,6C11.6,6 12,6.4 12,7C12,7.6 11.6,8 11,8Z" />
+        </svg>
+       </div><span>Fast</span>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section><!-- About Section -->
+  <section id="about" class="about">
+   <div class="container">
+    <h2 class="section-title" id="about-title">Why Choose RM Earning Point</h2>
+    <div class="about-grid">
+     <div class="about-card clickable-card" onclick="openDepositModal()">
+      <div class="about-icon">
+       <svg width="40" height="40" viewbox="0 0 24 24" fill="white"><path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M17,13H13V17H11V13H7V11H11V7H13V11H17V13Z" />
+       </svg>
+      </div>
+      <h3>Easy Deposit</h3>
+      <p>Simple and secure deposit process through JazzCash. Start investing in just a few minutes with our streamlined system.</p><button class="card-action-btn">Start Deposit</button>
+     </div>
+     <div class="about-card clickable-card" onclick="openReturnsModal()">
+      <div class="about-icon">
+       <svg width="40" height="40" viewbox="0 0 24 24" fill="white"><path d="M13,2.05V5.08C16.39,5.57 19,8.47 19,12C19,12.9 18.82,13.75 18.52,14.54L21.12,16.07C21.68,14.83 22,13.45 22,12C22,6.82 18.05,2.55 13,2.05M12,19A7,7 0 0,1 5,12C5,8.47 7.61,5.57 11,5.08V2.05C5.94,2.55 2,6.81 2,12A10,10 0 0,0 12,22C15.31,22 18.24,20.39 20.06,17.91L17.46,16.38C16.17,17.98 14.21,19 12,19Z" />
+       </svg>
+      </div>
+      <h3>Instant Return</h3>
+      <p>Get fast returns on your investments with our proven system. Experience quick turnaround times and reliable payouts.</p><button class="card-action-btn">Check Returns</button>
+     </div>
+     <div class="about-card clickable-card" onclick="openWhatsAppSupport()">
+      <div class="about-icon">
+       <svg width="40" height="40" viewbox="0 0 24 24" fill="white"><path d="M12,2C13.1,2 14,2.9 14,4C14,5.1 13.1,6 12,6C10.9,6 10,5.1 10,4C10,2.9 10.9,2 12,2M21,9V7L15,1H5C3.89,1 3,1.89 3,3V21A2,2 0 0,0 5,23H19A2,2 0 0,0 21,21V9M19,9H14V4H5V21H19V9Z" />
+       </svg>
+      </div>
+      <h3>24/7 WhatsApp Support</h3>
+      <p>Round-the-clock customer support through WhatsApp. Get instant help and guidance whenever you need assistance.</p><button class="card-action-btn">Chat Now</button>
+     </div>
+    </div>
+   </div>
+  </section><!-- How It Works -->
+  <section id="how-it-works">
+   <div class="container">
+    <h2 class="section-title" id="how-it-works-title">How It Works</h2>
+    <div class="steps-container">
+     <div class="steps-grid">
+      <div class="step-card clickable-card" onclick="openWhatsAppSupport()">
+       <div class="step-icon">
+        <svg width="50" height="50" viewbox="0 0 24 24" fill="#1F62D0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+       </div>
+       <h3>Contact us on WhatsApp</h3>
+       <p>Reach out to us on WhatsApp to discuss investment plans and get personalized guidance from our experts.</p><button class="card-action-btn">Contact Now</button>
+      </div>
+      <div class="step-card clickable-card" onclick="openDepositModal()">
+       <div class="step-icon">
+        <svg width="50" height="50" viewbox="0 0 24 24" fill="#1F62D0"><path d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z" />
+        </svg>
+       </div>
+       <h3>Deposit through JazzCash</h3>
+       <p>Make your secure investment deposit using JazzCash to our verified account number for instant processing.</p><button class="card-action-btn">Start Deposit</button>
+      </div>
+      <div class="step-card clickable-card" onclick="openScreenshotModal()">
+       <div class="step-icon">
+        <svg width="50" height="50" viewbox="0 0 24 24" fill="#1F62D0"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z" />
+        </svg>
+       </div>
+       <h3>Send screenshot for confirmation</h3>
+       <p>Share your payment screenshot on WhatsApp for quick verification and immediate account activation.</p><button class="card-action-btn">Upload Screenshot</button>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section><!-- Investment Packages -->
+  <section id="packages" class="packages">
+   <div class="container">
+    <h2 class="section-title" id="packages-title">Investment Packages</h2>
+    <div class="packages-grid">
+     <div class="package-card" data-package="1">
+      <h3>Package 1</h3>
+      <div class="package-amount">
+       Rs. 1,000
+      </div>
+      <div class="package-earning">
+       Earn Rs. 2,300 Daily
+      </div>
+      <p class="package-note">Consistent daily returns on your investment</p><button class="btn btn-gold" onclick="selectPackage('Package 1', 1000, 'Earn Rs. 2,300 Daily')" style="margin-top: 20px; width: 100%;"> Select Package </button>
+     </div>
+     <div class="package-card" data-package="2">
+      <h3>Package 2</h3>
+      <div class="package-amount">
+       Rs. 2,500
+      </div>
+      <div class="package-earning">
+       Earn Rs. 12,000
+      </div>
+      <p class="package-note">Quick returns in just 15 minutes</p><button class="btn btn-gold" onclick="selectPackage('Package 2', 2500, 'Earn Rs. 12,000 in 15 minutes')" style="margin-top: 20px; width: 100%;"> Select Package </button>
+     </div>
+    </div>
+   </div>
+  </section><!-- Payment Section -->
+  <section id="contact" class="payment">
+   <div class="container">
+    <div class="payment-box">
+     <div class="payment-content">
+      <h2 id="payment-title">Payment Information</h2>
+      <div class="payment-details">
+       <div class="payment-row"><span class="payment-label">Payment Method:</span> <span class="payment-value">JazzCash</span>
+       </div>
+       <div class="payment-row"><span class="payment-label">Account Number:</span> <span class="payment-value">03264296194</span>
+       </div>
+       <div class="payment-row"><span class="payment-label">Account Name:</span> <span class="payment-value">Sanober Latif</span>
+       </div>
+       <div class="payment-row"><span class="payment-label">Email:</span> <span class="payment-value">rmearnpoint@gmail.com</span>
+       </div>
+       <div class="payment-row"><span class="payment-label">WhatsApp:</span> <span class="payment-value">+92 326 4296194</span>
+       </div>
+      </div>
+      <div class="contact-buttons"><a href="https://wa.me/923264296194" target="_blank" rel="noopener noreferrer" class="contact-btn whatsapp-btn">
+        <svg width="24" height="24" viewbox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg> Chat Now </a> <a href="mailto:rmearnpoint@gmail.com?subject=Investment Inquiry - RM Earning Point&amp;body=Hi,%0D%0A%0D%0AI am interested in your investment packages. Please provide me with more details about:%0D%0A%0D%0A- Available investment plans%0D%0A- Expected returns%0D%0A- Payment process%0D%0A- Terms and conditions%0D%0A%0D%0AThank you!" target="_blank" rel="noopener noreferrer" class="contact-btn email-btn">
+        <svg width="24" height="24" viewbox="0 0 24 24" fill="white"><path d="M20,8L12,13L4,8V6L12,11L20,6M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4Z" />
+        </svg> Send Email </a>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section><!-- Package Selection Modal -->
+  <div id="packageModal" class="modal-overlay">
+   <div class="modal"><button class="close-btn" onclick="closeModal()">×</button>
+    <div class="modal-header">
+     <h3 class="modal-title">Complete Your Investment</h3>
+     <p class="modal-subtitle">Fill in your details to proceed</p>
+    </div>
+    <div id="modalContent">
+     <div id="packageInfo" class="package-info">
+      <h4 id="selectedPackageName">Package 1</h4>
+      <p id="selectedPackageDetails">Rs. 1,000 - Earn Rs. 2,300 Daily</p>
+     </div>
+     <form id="investmentForm">
+      <div class="form-group"><label for="customerName" class="form-label">Full Name *</label> <input type="text" id="customerName" class="form-input" placeholder="Enter your full name" required>
+      </div>
+      <div class="form-group"><label for="customerPhone" class="form-label">WhatsApp Number *</label> <input type="tel" id="customerPhone" class="form-input" placeholder="+92 300 1234567" required>
+      </div>
+      <div class="modal-buttons"><button type="button" class="modal-btn modal-btn-secondary" onclick="closeModal()">Cancel</button> <button type="submit" class="modal-btn modal-btn-primary" id="submitBtn"> <span id="submitText">Proceed to WhatsApp</span> <span id="submitSpinner" class="loading-spinner" style="display: none;"></span> </button>
+      </div>
+     </form>
+    </div>
+    <div id="successContent" style="display: none;">
+     <div class="success-message">
+      <h4>Registration Successful!</h4>
+      <p>Your investment request has been saved. You will now be redirected to WhatsApp to complete the process.</p>
+     </div>
+     <div class="modal-buttons"><button type="button" class="modal-btn modal-btn-primary" id="whatsappBtn"> Continue to WhatsApp </button>
+     </div>
+    </div>
+   </div>
+  </div><!-- Deposit Modal -->
+  <div id="depositModal" class="modal-overlay">
+   <div class="modal"><button class="close-btn" onclick="closeDepositModal()">×</button>
+    <div class="modal-header">
+     <h3 class="modal-title">JazzCash Deposit</h3>
+     <p class="modal-subtitle">Follow these steps to make your deposit</p>
+    </div>
+    <div class="payment-details">
+     <div class="payment-row"><span class="payment-label">Account Number:</span> <span class="payment-value">03264296194</span>
+     </div>
+     <div class="payment-row"><span class="payment-label">Account Name:</span> <span class="payment-value">Sanober Latif</span>
+     </div>
+    </div>
+    <div style="margin: 20px 0; padding: 20px; background: #f0f4ff; border-radius: 10px;">
+     <h4 style="margin: 0 0 10px 0; color: #1F62D0;">Deposit Instructions:</h4>
+     <ol style="margin: 0; padding-left: 20px; color: #666;">
+      <li>Open your JazzCash app</li>
+      <li>Select "Send Money"</li>
+      <li>Enter account number: 03264296194</li>
+      <li>Enter your deposit amount</li>
+      <li>Complete the transaction</li>
+      <li>Take a screenshot of the receipt</li>
+     </ol>
+    </div>
+    <div class="modal-buttons"><button type="button" class="modal-btn modal-btn-secondary" onclick="closeDepositModal()">Close</button> <button type="button" class="modal-btn modal-btn-primary" onclick="openScreenshotModal(); closeDepositModal();"> Upload Screenshot </button>
+    </div>
+   </div>
+  </div><!-- Screenshot Upload Modal -->
+  <div id="screenshotModal" class="modal-overlay">
+   <div class="modal"><button class="close-btn" onclick="closeScreenshotModal()">×</button>
+    <div class="modal-header">
+     <h3 class="modal-title">Upload Payment Screenshot</h3>
+     <p class="modal-subtitle">Share your payment receipt for verification</p>
+    </div>
+    <form id="screenshotForm">
+     <div class="form-group"><label for="senderName" class="form-label">Your Name *</label> <input type="text" id="senderName" class="form-input" placeholder="Enter your full name" required>
+     </div>
+     <div class="form-group"><label for="senderPhone" class="form-label">Your Phone Number *</label> <input type="tel" id="senderPhone" class="form-input" placeholder="+92 300 1234567" required>
+     </div>
+     <div class="form-group"><label for="depositAmount" class="form-label">Deposit Amount *</label> <input type="number" id="depositAmount" class="form-input" placeholder="Enter amount in PKR" required>
+     </div>
+     <div class="form-group"><label class="form-label">Payment Screenshot *</label>
+      <div class="file-upload-area" onclick="document.getElementById('screenshotFile').click()">
+       <div class="upload-icon">
+        <svg width="30" height="30" viewbox="0 0 24 24" fill="white"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z" />
+        </svg>
+       </div>
+       <div class="upload-text">
+        Click to upload screenshot
+       </div>
+       <div class="upload-subtext">
+        PNG, JPG up to 10MB
+       </div>
+      </div><input type="file" id="screenshotFile" class="file-input" accept="image/*" required>
+      <div id="filePreview" class="file-preview">
+       <div class="file-info">
+        <div class="file-icon">
+         <svg width="20" height="20" viewbox="0 0 24 24" fill="white"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z" />
+         </svg>
+        </div>
+        <div class="file-details">
+         <h4 id="fileName">Screenshot.jpg</h4>
+         <p id="fileSize">2.5 MB</p>
+        </div><button type="button" class="remove-file" onclick="removeFile()">×</button>
+       </div>
+      </div>
+     </div>
+     <div class="modal-buttons"><button type="button" class="modal-btn modal-btn-secondary" onclick="closeScreenshotModal()">Cancel</button> <button type="submit" class="modal-btn modal-btn-primary" id="screenshotSubmitBtn"> <span id="screenshotSubmitText">Send to WhatsApp</span> <span id="screenshotSpinner" class="loading-spinner" style="display: none;"></span> </button>
+     </div>
+    </form>
+   </div>
+  </div><!-- Returns Modal -->
+  <div id="returnsModal" class="modal-overlay">
+   <div class="modal"><button class="close-btn" onclick="closeReturnsModal()">×</button>
+    <div class="modal-header">
+     <h3 class="modal-title">Check Your Returns</h3>
+     <p class="modal-subtitle">Track your investment performance</p>
+    </div>
+    <div style="margin: 20px 0;">
+     <div style="background: linear-gradient(135deg, #1F62D0, #F4C542); color: white; padding: 25px; border-radius: 15px; text-align: center; margin-bottom: 20px;">
+      <h4 style="margin: 0 0 10px 0; font-size: 24px;">Investment Returns</h4>
+      <p style="margin: 0; opacity: 0.9;">Contact us to check your current returns and withdrawal options</p>
+     </div>
+     <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+      <h4 style="margin: 0 0 15px 0; color: #1F62D0;">How to Check Returns:</h4>
+      <ul style="margin: 0; padding-left: 20px; color: #666;">
+       <li>Contact us on WhatsApp with your details</li>
+       <li>Provide your registered phone number</li>
+       <li>Get instant update on your returns</li>
+       <li>Request withdrawal if eligible</li>
+      </ul>
+     </div>
+    </div>
+    <div class="modal-buttons"><button type="button" class="modal-btn modal-btn-secondary" onclick="closeReturnsModal()">Close</button> <button type="button" class="modal-btn modal-btn-primary" onclick="openWhatsAppSupport(); closeReturnsModal();"> Check on WhatsApp </button>
+    </div>
+   </div>
+  </div><!-- Assignment Modal -->
+  <div id="assignmentModal" class="modal-overlay">
+   <div class="modal"><button class="close-btn" onclick="closeAssignmentModal()">×</button>
+    <div class="modal-header">
+     <h3 class="modal-title">Submit Assignment</h3>
+     <p class="modal-subtitle">Upload your completed work</p>
+    </div>
+    <form id="assignmentForm">
+     <div class="form-group"><label for="studentName" class="form-label">Student Name *</label> <input type="text" id="studentName" class="form-input" placeholder="Enter your full name" required>
+     </div>
+     <div class="form-group"><label for="studentId" class="form-label">Student ID *</label> <input type="text" id="studentId" class="form-input" placeholder="Enter your student ID" required>
+     </div>
+     <div class="form-group"><label for="assignmentTitle" class="form-label">Assignment Title *</label> <input type="text" id="assignmentTitle" class="form-input" placeholder="Enter assignment title" required>
+     </div>
+     <div class="form-group"><label class="form-label">Assignment File *</label>
+      <div class="file-upload-area" onclick="document.getElementById('assignmentFile').click()">
+       <div class="upload-icon">
+        <svg width="30" height="30" viewbox="0 0 24 24" fill="white"><path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z" />
+        </svg>
+       </div>
+       <div class="upload-text">
+        Click to upload assignment
+       </div>
+       <div class="upload-subtext">
+        PDF, DOC, DOCX up to 25MB
+       </div>
+      </div><input type="file" id="assignmentFile" class="file-input" accept=".pdf,.doc,.docx" required>
+      <div id="assignmentFilePreview" class="file-preview">
+       <div class="file-info">
+        <div class="file-icon">
+         <svg width="20" height="20" viewbox="0 0 24 24" fill="white"><path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z" />
+         </svg>
+        </div>
+        <div class="file-details">
+         <h4 id="assignmentFileName">Assignment.pdf</h4>
+         <p id="assignmentFileSize">5.2 MB</p>
+        </div><button type="button" class="remove-file" onclick="removeAssignmentFile()">×</button>
+       </div>
+      </div>
+     </div>
+     <div class="modal-buttons"><button type="button" class="modal-btn modal-btn-secondary" onclick="closeAssignmentModal()">Cancel</button> <button type="submit" class="modal-btn modal-btn-primary" id="assignmentSubmitBtn"> <span id="assignmentSubmitText">Submit Assignment</span> <span id="assignmentSpinner" class="loading-spinner" style="display: none;"></span> </button>
+     </div>
+    </form>
+   </div>
+  </div><!-- Assignment Submission Section -->
+  <section id="assignment" class="assignment-section">
+   <div class="container">
+    <h2 class="section-title">Submit Your Assignment</h2>
+    <div class="assignment-box">
+     <div class="assignment-content">
+      <h3>Upload Your Work</h3>
+      <p>Submit your completed assignments and get instant feedback from our team.</p><button class="btn btn-gold" onclick="openAssignmentModal()" style="margin-top: 20px;"> Submit Assignment </button>
+     </div>
+    </div>
+   </div>
+  </section><!-- Footer -->
+  <footer>
+   <div class="container">
+    <p id="footer-copyright">© 2025 RM Earning Point | All Rights Reserved.</p>
+   </div>
+  </footer>
+  <script>
+    // Global variables
+    let selectedPackageData = null;
+    let currentRecordCount = 0;
+
+    const defaultConfig = {
+      logo_text: "RM",
+      company_name: "RM Earning Point",
+      hero_headline: "Grow Your Earnings with RM Earning Point",
+      hero_subheadline: "Fast returns and trusted investment opportunities",
+      cta_primary: "Start Investing",
+      cta_secondary: "Contact Support",
+      about_title: "Why Choose RM Earning Point",
+      how_it_works_title: "How It Works",
+      packages_title: "Investment Packages",
+      payment_title: "Payment Information",
+      footer_copyright: "© 2025 RM Earning Point | All Rights Reserved.",
+      background_color: "#1F62D0",
+      surface_color: "#ffffff",
+      text_color: "#333333",
+      primary_action_color: "#F4C542",
+      secondary_action_color: "#1F62D0",
+      font_family: "Poppins",
+      font_size: 16
+    };
+
+    // Data SDK Handler
+    const dataHandler = {
+      onDataChanged(data) {
+        currentRecordCount = data.length;
+        console.log(`Current records: ${currentRecordCount}`);
+      }
+    };
+
+    // Package Selection Functions
+    function selectPackage(packageName, amount, earning) {
+      if (currentRecordCount >= 999) {
+        showError("Maximum limit of 999 registrations reached. Please try again later.");
+        return;
+      }
+
+      selectedPackageData = {
+        name: packageName,
+        amount: amount,
+        earning: earning
+      };
+
+      // Update modal content
+      document.getElementById('selectedPackageName').textContent = packageName;
+      document.getElementById('selectedPackageDetails').textContent = `Rs. ${amount.toLocaleString()} - ${earning}`;
+
+      // Highlight selected package
+      document.querySelectorAll('.package-card').forEach(card => {
+        card.classList.remove('selected-package');
+      });
+      document.querySelector(`[data-package="${packageName.split(' ')[1]}"]`).classList.add('selected-package');
+
+      // Show modal
+      document.getElementById('packageModal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      document.getElementById('packageModal').classList.remove('active');
+      document.body.style.overflow = 'auto';
+      
+      // Reset form
+      document.getElementById('investmentForm').reset();
+      document.getElementById('modalContent').style.display = 'block';
+      document.getElementById('successContent').style.display = 'none';
+      
+      // Remove package selection
+      document.querySelectorAll('.package-card').forEach(card => {
+        card.classList.remove('selected-package');
+      });
+    }
+
+    function showError(message) {
+      const existingError = document.querySelector('.error-message');
+      if (existingError) {
+        existingError.remove();
+      }
+
+      const errorDiv = document.createElement('div');
+      errorDiv.className = 'error-message';
+      errorDiv.textContent = message;
+      
+      const modalContent = document.getElementById('modalContent');
+      modalContent.insertBefore(errorDiv, modalContent.firstChild);
+
+      setTimeout(() => {
+        errorDiv.remove();
+      }, 5000);
+    }
+
+    function setLoading(isLoading) {
+      const submitBtn = document.getElementById('submitBtn');
+      const submitText = document.getElementById('submitText');
+      const submitSpinner = document.getElementById('submitSpinner');
+
+      if (isLoading) {
+        submitBtn.disabled = true;
+        submitText.style.display = 'none';
+        submitSpinner.style.display = 'inline-block';
+      } else {
+        submitBtn.disabled = false;
+        submitText.style.display = 'inline-block';
+        submitSpinner.style.display = 'none';
+      }
+    }
+
+    async function handleFormSubmit(event) {
+      event.preventDefault();
+      
+      if (!selectedPackageData) {
+        showError("Please select a package first.");
+        return;
+      }
+
+      const name = document.getElementById('customerName').value.trim();
+      const phone = document.getElementById('customerPhone').value.trim();
+
+      if (!name || !phone) {
+        showError("Please fill in all required fields.");
+        return;
+      }
+
+      setLoading(true);
+
+      try {
+        // Check if Data SDK is available and initialized
+        if (window.dataSdk && currentRecordCount < 999) {
+          const registrationData = {
+            id: Date.now().toString(),
+            name: name,
+            phone: phone,
+            package: selectedPackageData.name,
+            amount: selectedPackageData.amount,
+            status: "pending",
+            createdAt: new Date().toISOString()
+          };
+
+          const result = await window.dataSdk.create(registrationData);
+          
+          if (!result.isOk) {
+            console.warn("Data SDK save failed, proceeding with WhatsApp redirect");
+          }
+        }
+
+        // Always proceed to WhatsApp regardless of data save status
+        // Show success content
+        document.getElementById('modalContent').style.display = 'none';
+        document.getElementById('successContent').style.display = 'block';
+
+        // Prepare WhatsApp message
+        const messageText = `Hi! I want to invest in ${selectedPackageData.name}
+
+Details:
+Name: ${name}
+Phone: ${phone}
+Package: ${selectedPackageData.name}
+Amount: Rs. ${selectedPackageData.amount.toLocaleString()}
+Expected Return: ${selectedPackageData.earning}
+
+Please guide me through the payment process.`;
+        
+        const whatsappMessage = encodeURIComponent(messageText);
+        
+        // Set up WhatsApp button
+        const whatsappBtn = document.getElementById('whatsappBtn');
+        whatsappBtn.onclick = function() {
+          try {
+            const whatsappUrl = `https://wa.me/923264296194?text=${whatsappMessage}`;
+            const newWindow = window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+            
+            if (!newWindow || newWindow.closed || typeof newWindow.closed == 'undefined') {
+              // Fallback if popup blocked
+              setTimeout(() => {
+                window.open(whatsappUrl, '_blank');
+              }, 100);
+            }
+            
+            setTimeout(() => {
+              closeModal();
+            }, 1500);
+          } catch (error) {
+            console.error('WhatsApp redirect error:', error);
+            // Direct fallback - open in same tab
+            window.open(`https://wa.me/923264296194?text=${whatsappMessage}`, '_blank');
+          }
+        };
+
+      } catch (error) {
+        console.error("Form submission error:", error);
+        
+        // Even if there's an error, still proceed to WhatsApp
+        document.getElementById('modalContent').style.display = 'none';
+        document.getElementById('successContent').style.display = 'block';
+
+        const messageText = `Hi! I want to invest in ${selectedPackageData.name}
+
+Details:
+Name: ${name}
+Phone: ${phone}
+Package: ${selectedPackageData.name}
+Amount: Rs. ${selectedPackageData.amount.toLocaleString()}
+Expected Return: ${selectedPackageData.earning}
+
+Please guide me through the payment process.`;
+        
+        const whatsappMessage = encodeURIComponent(messageText);
+        
+        const whatsappBtn = document.getElementById('whatsappBtn');
+        whatsappBtn.onclick = function() {
+          window.open(`https://wa.me/923264296194?text=${whatsappMessage}`, '_blank');
+          setTimeout(() => {
+            closeModal();
+          }, 1000);
+        };
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    // Initialize Data SDK
+    async function initializeDataSDK() {
+      if (window.dataSdk) {
+        try {
+          const result = await window.dataSdk.init(dataHandler);
+          if (!result.isOk) {
+            console.error("Failed to initialize Data SDK");
+          }
+        } catch (error) {
+          console.error("Error initializing Data SDK:", error);
+        }
+      }
+    }
+
+    // Modal Functions
+    function openDepositModal() {
+      document.getElementById('depositModal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDepositModal() {
+      document.getElementById('depositModal').classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+
+    function openScreenshotModal() {
+      document.getElementById('screenshotModal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeScreenshotModal() {
+      document.getElementById('screenshotModal').classList.remove('active');
+      document.body.style.overflow = 'auto';
+      document.getElementById('screenshotForm').reset();
+      document.getElementById('filePreview').classList.remove('show');
+    }
+
+    function openReturnsModal() {
+      document.getElementById('returnsModal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeReturnsModal() {
+      document.getElementById('returnsModal').classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+
+    function openAssignmentModal() {
+      document.getElementById('assignmentModal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeAssignmentModal() {
+      document.getElementById('assignmentModal').classList.remove('active');
+      document.body.style.overflow = 'auto';
+      document.getElementById('assignmentForm').reset();
+      document.getElementById('assignmentFilePreview').classList.remove('show');
+    }
+
+    function openWhatsAppSupport() {
+      const message = encodeURIComponent("Hi! I need support with RM Earning Point. Please help me with my queries.");
+      window.open(`https://wa.me/923264296194?text=${message}`, '_blank');
+    }
+
+    // File Upload Functions
+    function removeFile() {
+      document.getElementById('screenshotFile').value = '';
+      document.getElementById('filePreview').classList.remove('show');
+    }
+
+    function removeAssignmentFile() {
+      document.getElementById('assignmentFile').value = '';
+      document.getElementById('assignmentFilePreview').classList.remove('show');
+    }
+
+    // Screenshot Form Handler
+    async function handleScreenshotSubmit(event) {
+      event.preventDefault();
+      
+      const name = document.getElementById('senderName').value.trim();
+      const phone = document.getElementById('senderPhone').value.trim();
+      const amount = document.getElementById('depositAmount').value.trim();
+      const file = document.getElementById('screenshotFile').files[0];
+
+      if (!name || !phone || !amount || !file) {
+        showScreenshotError("Please fill in all fields and upload a screenshot.");
+        return;
+      }
+
+      setScreenshotLoading(true);
+
+      try {
+        // Save to Data SDK if available
+        if (window.dataSdk && currentRecordCount < 999) {
+          const screenshotData = {
+            id: Date.now().toString(),
+            name: name,
+            phone: phone,
+            amount: parseFloat(amount),
+            type: "screenshot_submission",
+            fileName: file.name,
+            fileSize: file.size,
+            status: "pending_verification",
+            createdAt: new Date().toISOString()
+          };
+
+          const result = await window.dataSdk.create(screenshotData);
+          if (!result.isOk) {
+            console.warn("Data SDK save failed, proceeding with WhatsApp");
+          }
+        }
+
+        // Prepare WhatsApp message
+        const messageText = `Payment Screenshot Submission
+
+Name: ${name}
+Phone: ${phone}
+Amount: Rs. ${amount}
+File: ${file.name} (${(file.size / 1024 / 1024).toFixed(2)} MB)
+
+Please verify my payment and activate my account.`;
+        
+        const whatsappMessage = encodeURIComponent(messageText);
+        window.open(`https://wa.me/923264296194?text=${whatsappMessage}`, '_blank');
+        
+        setTimeout(() => {
+          closeScreenshotModal();
+        }, 1000);
+
+      } catch (error) {
+        console.error("Screenshot submission error:", error);
+        showScreenshotError("Submission failed. Please try again or contact support.");
+      } finally {
+        setScreenshotLoading(false);
+      }
+    }
+
+    // Assignment Form Handler
+    async function handleAssignmentSubmit(event) {
+      event.preventDefault();
+      
+      const studentName = document.getElementById('studentName').value.trim();
+      const studentId = document.getElementById('studentId').value.trim();
+      const assignmentTitle = document.getElementById('assignmentTitle').value.trim();
+      const file = document.getElementById('assignmentFile').files[0];
+
+      if (!studentName || !studentId || !assignmentTitle || !file) {
+        showAssignmentError("Please fill in all fields and upload your assignment.");
+        return;
+      }
+
+      setAssignmentLoading(true);
+
+      try {
+        // Save to Data SDK if available
+        if (window.dataSdk && currentRecordCount < 999) {
+          const assignmentData = {
+            id: Date.now().toString(),
+            studentName: studentName,
+            studentId: studentId,
+            assignmentTitle: assignmentTitle,
+            fileName: file.name,
+            fileSize: file.size,
+            type: "assignment_submission",
+            status: "submitted",
+            createdAt: new Date().toISOString()
+          };
+
+          const result = await window.dataSdk.create(assignmentData);
+          if (!result.isOk) {
+            console.warn("Data SDK save failed, proceeding with WhatsApp");
+          }
+        }
+
+        // Prepare WhatsApp message
+        const messageText = `Assignment Submission
+
+Student Name: ${studentName}
+Student ID: ${studentId}
+Assignment Title: ${assignmentTitle}
+File: ${file.name} (${(file.size / 1024 / 1024).toFixed(2)} MB)
+
+Please review my assignment and provide feedback.`;
+        
+        const whatsappMessage = encodeURIComponent(messageText);
+        window.open(`https://wa.me/923264296194?text=${whatsappMessage}`, '_blank');
+        
+        setTimeout(() => {
+          closeAssignmentModal();
+        }, 1000);
+
+      } catch (error) {
+        console.error("Assignment submission error:", error);
+        showAssignmentError("Submission failed. Please try again or contact support.");
+      } finally {
+        setAssignmentLoading(false);
+      }
+    }
+
+    function showScreenshotError(message) {
+      const existingError = document.querySelector('#screenshotModal .error-message');
+      if (existingError) {
+        existingError.remove();
+      }
+
+      const errorDiv = document.createElement('div');
+      errorDiv.className = 'error-message';
+      errorDiv.textContent = message;
+      
+      const modalContent = document.querySelector('#screenshotModal .modal-header');
+      modalContent.parentNode.insertBefore(errorDiv, modalContent.nextSibling);
+
+      setTimeout(() => {
+        errorDiv.remove();
+      }, 5000);
+    }
+
+    function showAssignmentError(message) {
+      const existingError = document.querySelector('#assignmentModal .error-message');
+      if (existingError) {
+        existingError.remove();
+      }
+
+      const errorDiv = document.createElement('div');
+      errorDiv.className = 'error-message';
+      errorDiv.textContent = message;
+      
+      const modalContent = document.querySelector('#assignmentModal .modal-header');
+      modalContent.parentNode.insertBefore(errorDiv, modalContent.nextSibling);
+
+      setTimeout(() => {
+        errorDiv.remove();
+      }, 5000);
+    }
+
+    function setScreenshotLoading(isLoading) {
+      const submitBtn = document.getElementById('screenshotSubmitBtn');
+      const submitText = document.getElementById('screenshotSubmitText');
+      const submitSpinner = document.getElementById('screenshotSpinner');
+
+      if (isLoading) {
+        submitBtn.disabled = true;
+        submitText.style.display = 'none';
+        submitSpinner.style.display = 'inline-block';
+      } else {
+        submitBtn.disabled = false;
+        submitText.style.display = 'inline-block';
+        submitSpinner.style.display = 'none';
+      }
+    }
+
+    function setAssignmentLoading(isLoading) {
+      const submitBtn = document.getElementById('assignmentSubmitBtn');
+      const submitText = document.getElementById('assignmentSubmitText');
+      const submitSpinner = document.getElementById('assignmentSpinner');
+
+      if (isLoading) {
+        submitBtn.disabled = true;
+        submitText.style.display = 'none';
+        submitSpinner.style.display = 'inline-block';
+      } else {
+        submitBtn.disabled = false;
+        submitText.style.display = 'inline-block';
+        submitSpinner.style.display = 'none';
+      }
+    }
+
+    // Event Listeners
+    document.addEventListener('DOMContentLoaded', function() {
+      // Initialize Data SDK
+      initializeDataSDK();
+
+      // Form submissions
+      document.getElementById('investmentForm').addEventListener('submit', handleFormSubmit);
+      document.getElementById('screenshotForm').addEventListener('submit', handleScreenshotSubmit);
+      document.getElementById('assignmentForm').addEventListener('submit', handleAssignmentSubmit);
+
+      // File upload handlers
+      document.getElementById('screenshotFile').addEventListener('change', function(e) {
+        const file = e.target.files[0];
+        if (file) {
+          document.getElementById('fileName').textContent = file.name;
+          document.getElementById('fileSize').textContent = (file.size / 1024 / 1024).toFixed(2) + ' MB';
+          document.getElementById('filePreview').classList.add('show');
+        }
+      });
+
+      document.getElementById('assignmentFile').addEventListener('change', function(e) {
+        const file = e.target.files[0];
+        if (file) {
+          document.getElementById('assignmentFileName').textContent = file.name;
+          document.getElementById('assignmentFileSize').textContent = (file.size / 1024 / 1024).toFixed(2) + ' MB';
+          document.getElementById('assignmentFilePreview').classList.add('show');
+        }
+      });
+
+      // Close modals on overlay click
+      const modals = ['packageModal', 'depositModal', 'screenshotModal', 'returnsModal', 'assignmentModal'];
+      modals.forEach(modalId => {
+        document.getElementById(modalId).addEventListener('click', function(e) {
+          if (e.target === this) {
+            if (modalId === 'packageModal') closeModal();
+            else if (modalId === 'depositModal') closeDepositModal();
+            else if (modalId === 'screenshotModal') closeScreenshotModal();
+            else if (modalId === 'returnsModal') closeReturnsModal();
+            else if (modalId === 'assignmentModal') closeAssignmentModal();
+          }
+        });
+      });
+
+      // Close modals on Escape key
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          if (document.getElementById('packageModal').classList.contains('active')) closeModal();
+          if (document.getElementById('depositModal').classList.contains('active')) closeDepositModal();
+          if (document.getElementById('screenshotModal').classList.contains('active')) closeScreenshotModal();
+          if (document.getElementById('returnsModal').classList.contains('active')) closeReturnsModal();
+          if (document.getElementById('assignmentModal').classList.contains('active')) closeAssignmentModal();
+        }
+      });
+    });
+
+    async function onConfigChange(config) {
+      const logoText = config.logo_text || defaultConfig.logo_text;
+      const companyName = config.company_name || defaultConfig.company_name;
+      const heroHeadline = config.hero_headline || defaultConfig.hero_headline;
+      const heroSubheadline = config.hero_subheadline || defaultConfig.hero_subheadline;
+      const ctaPrimary = config.cta_primary || defaultConfig.cta_primary;
+      const ctaSecondary = config.cta_secondary || defaultConfig.cta_secondary;
+      const aboutTitle = config.about_title || defaultConfig.about_title;
+      const howItWorksTitle = config.how_it_works_title || defaultConfig.how_it_works_title;
+      const packagesTitle = config.packages_title || defaultConfig.packages_title;
+      const paymentTitle = config.payment_title || defaultConfig.payment_title;
+      const footerCopyright = config.footer_copyright || defaultConfig.footer_copyright;
+      
+      const backgroundColor = config.background_color || defaultConfig.background_color;
+      const surfaceColor = config.surface_color || defaultConfig.surface_color;
+      const textColor = config.text_color || defaultConfig.text_color;
+      const primaryActionColor = config.primary_action_color || defaultConfig.primary_action_color;
+      const secondaryActionColor = config.secondary_action_color || defaultConfig.secondary_action_color;
+      
+      const fontFamily = config.font_family || defaultConfig.font_family;
+      const fontSize = config.font_size || defaultConfig.font_size;
+
+      document.getElementById('logo-text').textContent = logoText;
+      document.getElementById('company-name').textContent = companyName;
+      document.getElementById('hero-headline').textContent = heroHeadline;
+      document.getElementById('hero-subheadline').textContent = heroSubheadline;
+      document.getElementById('cta-primary').textContent = ctaPrimary;
+      document.getElementById('cta-secondary').textContent = ctaSecondary;
+      document.getElementById('about-title').textContent = aboutTitle;
+      document.getElementById('how-it-works-title').textContent = howItWorksTitle;
+      document.getElementById('packages-title').textContent = packagesTitle;
+      document.getElementById('payment-title').textContent = paymentTitle;
+      document.getElementById('footer-copyright').textContent = footerCopyright;
+
+      document.querySelector('.hero').style.background = `linear-gradient(135deg, ${backgroundColor} 0%, ${primaryActionColor} 100%)`;
+      document.querySelector('.packages').style.background = `linear-gradient(135deg, ${backgroundColor} 0%, #0a4299 100%)`;
+      document.querySelector('footer').style.background = `linear-gradient(135deg, ${backgroundColor} 0%, #0a4299 100%)`;
+      document.querySelector('.payment-box').style.background = `linear-gradient(135deg, ${backgroundColor}, #0a4299)`;
+      
+      const logoCircle = document.querySelector('.logo-circle');
+      logoCircle.style.background = `linear-gradient(135deg, ${backgroundColor}, ${primaryActionColor})`;
+      
+      const aboutIcons = document.querySelectorAll('.about-icon');
+      aboutIcons.forEach(icon => {
+        icon.style.background = `linear-gradient(135deg, ${backgroundColor}, ${primaryActionColor})`;
+      });
+
+      const stepNumbers = document.querySelectorAll('.step-number');
+      stepNumbers.forEach(num => {
+        num.style.background = `linear-gradient(135deg, ${backgroundColor}, ${primaryActionColor})`;
+      });
+
+      document.body.style.background = surfaceColor;
+      document.body.style.color = textColor;
+
+      const sectionTitles = document.querySelectorAll('.section-title');
+      sectionTitles.forEach(title => {
+        if (!title.closest('.packages')) {
+          title.style.color = backgroundColor;
+        }
+      });
+
+      const aboutCardTitles = document.querySelectorAll('.about-card h3');
+      aboutCardTitles.forEach(title => {
+        title.style.color = backgroundColor;
+      });
+
+      const stepCardTitles = document.querySelectorAll('.step-card h3');
+      stepCardTitles.forEach(title => {
+        title.style.color = backgroundColor;
+      });
+
+      const packageCardTitles = document.querySelectorAll('.package-card h3');
+      packageCardTitles.forEach(title => {
+        title.style.color = primaryActionColor;
+      });
+
+      const packageEarnings = document.querySelectorAll('.package-earning');
+      packageEarnings.forEach(earning => {
+        earning.style.color = primaryActionColor;
+      });
+
+      const paymentValues = document.querySelectorAll('.payment-value');
+      paymentValues.forEach(value => {
+        value.style.color = primaryActionColor;
+      });
+
+      const btnGold = document.querySelector('.btn-gold');
+      btnGold.style.background = `linear-gradient(135deg, ${primaryActionColor}, #FFD700)`;
+      btnGold.style.color = backgroundColor;
+
+      const navBtns = document.querySelectorAll('.nav-btn');
+      navBtns.forEach(btn => {
+        btn.style.color = backgroundColor;
+      });
+
+      const companyNameEl = document.querySelector('.company-name');
+      companyNameEl.style.color = backgroundColor;
+
+      const baseFontStack = 'sans-serif';
+      document.body.style.fontFamily = `${fontFamily}, ${baseFontStack}`;
+
+      document.querySelector('.hero h1').style.fontSize = `${fontSize * 3.5}px`;
+      document.querySelector('.hero p').style.fontSize = `${fontSize * 1.375}px`;
+      document.querySelectorAll('.section-title').forEach(el => {
+        el.style.fontSize = `${fontSize * 2.625}px`;
+      });
+      document.querySelectorAll('.about-card h3, .step-card h3, .package-card h3').forEach(el => {
+        el.style.fontSize = `${fontSize * 1.375}px`;
+      });
+      document.querySelectorAll('.about-card p, .step-card p').forEach(el => {
+        el.style.fontSize = `${fontSize}px`;
+      });
+      document.querySelector('.package-amount').style.fontSize = `${fontSize * 2.25}px`;
+      document.querySelector('.package-earning').style.fontSize = `${fontSize * 1.25}px`;
+      document.querySelector('.payment-box h2').style.fontSize = `${fontSize * 2}px`;
+      document.querySelector('.btn').style.fontSize = `${fontSize}px`;
+      document.querySelector('.whatsapp-btn').style.fontSize = `${fontSize}px`;
+      document.querySelectorAll('footer p').forEach(el => {
+        el.style.fontSize = `${fontSize}px`;
+      });
+      document.querySelector('.company-name').style.fontSize = `${fontSize * 1.25}px`;
+    }
+
+    function mapToCapabilities(config) {
+      return {
+        recolorables: [
+          {
+            get: () => config.background_color || defaultConfig.background_color,
+            set: (value) => {
+              config.background_color = value;
+              window.elementSdk.setConfig({ background_color: value });
+            }
+          },
+          {
+            get: () => config.surface_color || defaultConfig.surface_color,
+            set: (value) => {
+              config.surface_color = value;
+              window.elementSdk.setConfig({ surface_color: value });
+            }
+          },
+          {
+            get: () => config.text_color || defaultConfig.text_color,
+            set: (value) => {
+              config.text_color = value;
+              window.elementSdk.setConfig({ text_color: value });
+            }
+          },
+          {
+            get: () => config.primary_action_color || defaultConfig.primary_action_color,
+            set: (value) => {
+              config.primary_action_color = value;
+              window.elementSdk.setConfig({ primary_action_color: value });
+            }
+          },
+          {
+            get: () => config.secondary_action_color || defaultConfig.secondary_action_color,
+            set: (value) => {
+              config.secondary_action_color = value;
+              window.elementSdk.setConfig({ secondary_action_color: value });
+            }
+          }
+        ],
+        borderables: [],
+        fontEditable: {
+          get: () => config.font_family || defaultConfig.font_family,
+          set: (value) => {
+            config.font_family = value;
+            window.elementSdk.setConfig({ font_family: value });
+          }
+        },
+        fontSizeable: {
+          get: () => config.font_size || defaultConfig.font_size,
+          set: (value) => {
+            config.font_size = value;
+            window.elementSdk.setConfig({ font_size: value });
+          }
+        }
+      };
+    }
+
+    function mapToEditPanelValues(config) {
+      return new Map([
+        ["logo_text", config.logo_text || defaultConfig.logo_text],
+        ["company_name", config.company_name || defaultConfig.company_name],
+        ["hero_headline", config.hero_headline || defaultConfig.hero_headline],
+        ["hero_subheadline", config.hero_subheadline || defaultConfig.hero_subheadline],
+        ["cta_primary", config.cta_primary || defaultConfig.cta_primary],
+        ["cta_secondary", config.cta_secondary || defaultConfig.cta_secondary],
+        ["about_title", config.about_title || defaultConfig.about_title],
+        ["how_it_works_title", config.how_it_works_title || defaultConfig.how_it_works_title],
+        ["packages_title", config.packages_title || defaultConfig.packages_title],
+        ["payment_title", config.payment_title || defaultConfig.payment_title],
+        ["footer_copyright", config.footer_copyright || defaultConfig.footer_copyright]
+      ]);
+    }
+
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange,
+        mapToCapabilities,
+        mapToEditPanelValues
+      });
+    }
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'998ee5b4b2cd5b2e',t:'MTc2MjIwNDYzNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
+      
